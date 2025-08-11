@@ -4,8 +4,6 @@ import dotenv from "dotenv";
 
 dotenv.config()
 
-console.log("db.js file running");
-
 const connectDB = async () => {
     try {
         await mongoose.connect(mongoUri);
