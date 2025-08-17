@@ -11,7 +11,7 @@ const addStudent = async (req, res) => {
 
         const student = await Student.create(req.body);
 
-        return res.status(200).json(
+        return res.status(201).json(
             {
                 message: "student created successfully",
                 student
@@ -32,10 +32,15 @@ const getAllStudents = async (req, res) => {
         if (!students) {
             return res.status(400).json({ message: "Can't get all students" })
         }
+
+        // res.render("index", students)
+
         return res.status(200).json({
             message: "Getting all students data success",
             students
         })
+
+
     } catch (error) {
         console.log("Error in getAllStudent", error.message);
         return res.status(400).json({ message: "getting all students data error" })
@@ -115,13 +120,12 @@ const updateStudent = async (req, res) => {
 
         const updatedStudent = await student.save()
 
-        return res.status(200).json(
+        res.status(200).json(
             {
                 message: "student data updated",
                 updatedStudent
             }
         )
-
 
     } catch (error) {
         console.log("Updating student error", error.message);
