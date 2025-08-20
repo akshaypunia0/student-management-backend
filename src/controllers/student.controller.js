@@ -1,6 +1,7 @@
 import { Student } from "../models/student.model.js";
 
 
+
 const addStudent = async (req, res) => {
     try {
         const { name, email, age, course, city } = req.body;

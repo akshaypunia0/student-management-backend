@@ -1,6 +1,6 @@
 import express from "express";
-import cors from "cors";
-import studentRoutes from "./routes/student.route.js"
+import studentRoutes from "./routes/student.route.js";
+import userRoutes from "./routes/user.routes.js";
 
 const app = express();
 
@@ -10,6 +10,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
 app.use("/api/student", studentRoutes)    //studentRoutes == router in student.route.js
+app.use("/api/user", userRoutes)
 
 
 app.get("/", (req, res) => {
